@@ -7,7 +7,7 @@ body{
 
 main{
     max-width: 780px;
-    margin: a auto;
+    margin: 0 auto;
 }
 
 .hero {
@@ -90,7 +90,7 @@ main{
 }
 
 .security_indicator .bar.warning{
-    border-color: #f2c94c;
+    background-color: #f2c94c;
 }
 
 .security_indicator .bar.safe{

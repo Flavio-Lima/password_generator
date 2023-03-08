@@ -2,6 +2,7 @@ const inputEl = document.querySelector('#password')
 const upperCaseCheckEl = document.querySelector('#uppercase_check')
 const numberCheckEl = document.querySelector('#number_check')
 const symbolCheckEl = document.querySelector('#symbol_check')
+const securityIndicatorBarEl = document.querySelector('#security_indicator_bar')
 let passwordLength = 16
 
 function generatePassword() {
@@ -30,10 +31,52 @@ function generatePassword() {
         const randomNumber = Math.floor(Math.random() * chars.length)
         password += chars.substring(randomNumber, randomNumber + 1)
     }
-
     
     inputEl.value = password
+
+    calculeteQuality()
 }
+
+function calculeteQuality() {
+    const percent = Math.round(
+        (passwordLength / 64) * 25 +
+        (upperCaseCheckEl.checked ? 15 : 0) +
+        (numberCheckEl.checked ? 25 : 0) +
+        (symbolCheckEl.checked ? 35 : 0) 
+        
+    )
+
+    securityIndicatorBarEl.style.width = `${percent}%`
+
+    if (percent > 69)
+    {
+        securityIndicatorBarEl.classList.remove('critical')
+        securityIndicatorBarEl.classList.remove('warning')
+        securityIndicatorBarEl.classList.add('safe')
+    }
+    else if (percent > 50)
+    {
+        securityIndicatorBarEl.classList.remove('critical')
+        securityIndicatorBarEl.classList.add('warning')
+        securityIndicatorBarEl.classList.remove('safe')
+    }
+    else
+    {
+        securityIndicatorBarEl.classList.add('critical')
+        securityIndicatorBarEl.classList.remove('warning')
+        securityIndicatorBarEl.classList.remove('safe')
+    }
+
+    if (percent >= 100)
+    {
+        securityIndicatorBarEl.classList.add('completed')
+    }
+    else
+    {
+        securityIndicatorBarEl.classList.remove('completed')
+    }
+}
+
 
 function copy() {
     navigator.clipboard.writeText(inputEl.value)
@@ -42,6 +85,7 @@ function copy() {
 const passwordLengthEl = document.querySelector("#password_length")
 passwordLengthEl.addEventListener("input", function () {
     passwordLength = passwordLengthEl.value
+    document.querySelector('#password_length_text').innerText = passwordLength
     generatePassword()
 })
 
