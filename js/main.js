@@ -35,6 +35,7 @@ function generatePassword() {
     inputEl.value = password
 
     calculeteQuality()
+    calculateFontSize()
 }
 
 function calculeteQuality() {
@@ -77,6 +78,33 @@ function calculeteQuality() {
     }
 }
 
+function calculateFontSize() {
+    if (passwordLength > 45)
+    {
+        inputEl.classList.remove("font_sm")
+        inputEl.classList.remove("font_xs")
+        inputEl.classList.add("font_xxs")
+    }
+    else if (passwordLength > 30)
+    {
+        inputEl.classList.remove("font_sm")
+        inputEl.classList.add("font_xs")
+        inputEl.classList.remove("font_xxs")
+    }
+    else if (passwordLength > 20)
+    {
+        inputEl.classList.add("font_sm")
+        inputEl.classList.remove("font_xs")
+        inputEl.classList.remove("font_xxs")
+    }
+    else
+    {
+        inputEl.classList.remove("font_sm")
+        inputEl.classList.remove("font_xs")
+        inputEl.classList.remove("font_xxs")
+    }
+}
+
 
 function copy() {
     navigator.clipboard.writeText(inputEl.value)
@@ -95,5 +123,6 @@ symbolCheckEl.addEventListener("click", generatePassword)
 
 document.querySelector("#copy_1").addEventListener("click", copy)
 document.querySelector("#copy_2").addEventListener("click", copy)
+document.querySelector("#renew").addEventListener("click", generatePassword)
 
 generatePassword()

@@ -42,6 +42,7 @@ main{
 .password .text{
     flex: 1;
 }
+
 .password .text input{
     font-family: 'Inconsolata', monospace;
     font-size: 3rem;
@@ -55,6 +56,18 @@ main{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.password .text input.font_sm{
+    font-size: 2rem;
+}
+
+.password .text input.font_xs{
+    font-size: 1.3rem;
+}
+
+.password .text input.font_xxs{
+    font-size: 0.95rem;
 }
 
 .password .actions button{
@@ -227,4 +240,30 @@ main{
 
 .submit button:hover{
     background-color: #9b51e0;
+}
+
+@media only screen and (max-width: 480px) {
+    .password{
+        padding: 1rem;
+    }
+
+    .password .text input{
+        font-size: 1.5rem;
+    }
+
+    .password .text input.font_sm{
+        font-size: 1.2rem;
+    }
+    
+    .password .text input.font_xs{
+        font-size: 1rem;
+    }
+    
+    .password .text input.font_xxs{
+        font-size: 0.8rem;
+    }
+
+    .password .actions img{
+        width: 24px;
+    }
 }
