@@ -27,10 +27,6 @@ Para utilizar o gerador de senhas, basta abrir o arquivo `index.html` em um nave
 3. A senha gerada será exibida na caixa de texto abaixo do botão "Gerar Senha".
 4. Se desejar, clique no botão "Copiar Senha" para copiar a senha gerada para a área de transferência.
 
-## Contribuição
-
-Se você deseja contribuir para este projeto, fique à vontade para fazer um fork deste repositório e enviar suas melhorias por meio de pull requests. Será um prazer revisar e mesclar suas contribuições.
-
 ## Agradecimentos
 
 Agradecemos por utilizar o nosso gerador de senhas aleatórias e fortes. Esperamos que seja útil para suas necessidades de segurança e proteção de dados. Se você tiver alguma sugestão ou encontrar algum problema, sinta-se à vontade para abrir uma issue neste repositório.
